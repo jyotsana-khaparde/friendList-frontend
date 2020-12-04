@@ -18,7 +18,7 @@ class HomePage extends Component {
      }
   
     keyPress = (e) => {
-        if(e.keyCode === 13){
+        if (e.keyCode === 13) {
            console.log('value---', e.target.value);
         }
     }
