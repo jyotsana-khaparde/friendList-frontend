@@ -1,0 +1,6 @@
+{
+    "friendList": [
+      { "id": 1, "name": "Jyotsana", "isFavorite": true },
+      { "id": 2, "name": "Nikila", "isFavorite": false }
+    ]
+}

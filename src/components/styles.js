@@ -16,7 +16,7 @@ const styles = () => ({
         alignItems: 'center'
     },
     container: { 
-        margin: '4%', 
+        margin: '5%', 
         border: '1px solid #f3f0f0' 
     },
     header: { 
@@ -32,8 +32,43 @@ const styles = () => ({
     },
     headingContainer: { 
         display: 'flex', 
-        justifyContent: 'space-between', 
-        marginTop: '1%' 
+        justifyContent: 'space-evenly', 
+        margin: '1% 0 1% 0%' 
+    },
+    deleteButton: {
+        padding: 5, 
+        borderRadius: 5, 
+        background: 'whitesmoke', 
+        color: 'black', 
+        margin: 3 
+    },
+    starButton: {
+        padding: 5, 
+        borderRadius: 5, 
+        background: 'whitesmoke', 
+        color: 'black', 
+        margin: 3 
+    },
+    listContainer: {
+        display: 'flex',
+        margin: '0px 230px 0px 230px',
+        padding: 10,
+        justifyContent: 'space-between',
+        border: '1px solid #d2cdcd',
+    },
+    nameContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        textAlign: 'left',
+        justifyContent: 'space-between'
+    },
+    name: {
+        fontSize: 18,
+        fontWeight: 500
+    },
+    info: {
+        fontSize: 14,
+        color: 'gray'
     }
 })
 
