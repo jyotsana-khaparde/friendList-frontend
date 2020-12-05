@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { Button } from '@material-ui/core';
-
+import { withStyles } from '@material-ui/core';
+import styles from './styles';
 
 const Pagination = (props) => {
     console.log('props showPerPage----', props)
+    const { classes } = props;
     const [counter, setCounter] = useState(1);
 
     useEffect(() => {
@@ -25,15 +27,33 @@ const Pagination = (props) => {
     }
 
     return (
-        <div>
-            <Button onClick={() => handleButtonClick('prev')}>
-                Previous
-            </Button>
-            <Button onClick={() => handleButtonClick('next')}>
-                Next
-            </Button>
-        </div>
+        <>
+            <ul className={classes.paginationContainer}>
+                <li>
+                    <Button color='primary' onClick={() => handleButtonClick('prev')}>
+                        Previous
+                    </Button>
+                </li>
+                {
+                    new Array(Math.ceil(props.totalListLength / props.showPerPage)).fill("").map((element, index) => (
+                        <li
+                            className={index + 1 === counter ? classes.activePageNumber : classes.pageNumber}
+                            onClick={() => setCounter(index + 1)}
+                        >
+                            <span>
+                                {index + 1}
+                            </span>
+                        </li>
+                    ))
+                }
+                <li>
+                    <Button color='primary' onClick={() => handleButtonClick('next')}>
+                        Next
+                    </Button>
+                </li>
+            </ul>
+        </>
     )
 }
 
-export default Pagination;
+export default withStyles(styles)(Pagination);

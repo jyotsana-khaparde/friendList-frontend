@@ -72,11 +72,14 @@ class ListPage extends Component {
                     </div>
                     )) : <div>No Friends found !</div>
                 }
-                <Pagination
-                    showPerPage={showPerPage}
-                    onPaginationChange={this.onPaginationChange}
-                    totalListLength={friendList.length}
-                />
+                {
+                    friendList && friendList.length > 0 &&
+                    <Pagination
+                        showPerPage={showPerPage}
+                        onPaginationChange={this.onPaginationChange}
+                        totalListLength={friendList.length}
+                    />
+                }
             </>
         )
     }

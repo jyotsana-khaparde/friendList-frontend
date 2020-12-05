@@ -77,6 +77,27 @@ const styles = () => ({
     info: {
         fontSize: 14,
         color: 'gray'
+    },
+    paginationContainer: {
+        listStyle: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    pageNumber: {
+        border: '1px solid grey',
+        padding: 10,
+        borderRadius: 15,
+        margin: 3
+    },
+    activePageNumber: {
+        border: '1px solid grey',
+        padding: 10,
+        borderRadius: 15,
+        margin: 3,
+        background: '#3f51b5',
+        color: 'white',
+        fontWeight: 'bold',
     }
 })
 
