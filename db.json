@@ -24,6 +24,11 @@
       "id": "d2792cac-466a-43a7-aff9-dc017ae9661f",
       "name": "Simba",
       "isFavorite": false
+    },
+    {
+      "id": "489dc778-10d1-43b8-be55-34befc3eeecf",
+      "name": "Sneha Khan",
+      "isFavorite": false
     }
   ]
 }

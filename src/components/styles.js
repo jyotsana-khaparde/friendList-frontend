@@ -117,7 +117,7 @@ const styles = () => ({
         padding: 5, 
         margin: 4, 
         color: 'white', 
-        background: 'rgb(69 173 93)'
+        background: '#3f51b5'
     }
 })
 
