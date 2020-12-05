@@ -13,7 +13,7 @@
     {
       "id": "8cff64b2-8867-450c-96e1-d6d5505b873d",
       "name": "Simba singh",
-      "isFavorite": true
+      "isFavorite": false
     },
     {
       "id": "34aa51f2-d281-487a-8bcc-0bc3c72c571e",
@@ -38,7 +38,7 @@
     {
       "id": "f707144f-28d1-4a87-8259-3df516022ba7",
       "name": "qweqw",
-      "isFavorite": false
+      "isFavorite": true
     },
     {
       "id": "89c3dc27-3f1b-4b4c-88dd-bc9543f0c52d",
@@ -49,6 +49,11 @@
       "id": "c0abbd75-4c74-4121-ad79-69a334630793",
       "name": "qwe",
       "isFavorite": false
+    },
+    {
+      "id": "4a3c89a3-0dd2-437e-a75f-5d6636cb55b1",
+      "name": "saurabh singh",
+      "isFavorite": true
     }
   ]
 }

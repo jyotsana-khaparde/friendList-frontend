@@ -57,17 +57,45 @@ class ListPage extends Component {
         })
     }
 
+    sortDataList = (dataList) => {
+        // sort by name
+        dataList.sort(function(a, b) {
+            // ignore upper and lowercase
+            var nameA = a.name.toUpperCase();
+            var nameB = b.name.toUpperCase();
+            if (nameA < nameB) {
+            return -1;
+            }
+            if (nameA > nameB) {
+            return 1;
+            }
+            // names must be equal
+            return 0;
+        });
+        return dataList;
+    }
+
     render() {
         let { classes, friendList, searchText } = this.props;
         const { pagination, showPerPage, openDeleteModal } = this.state;
         let updatedFilter = []
+        let unfavoriteArray = []
+        let favoriteArray = []
         if (searchText) {
             updatedFilter = friendList.filter((list) => {
                 return list.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1;
             })
         }
         if (!searchText) {
-            console.log('pagination bas dikhana hai')
+            console.log('pagination bas dikhana hai====', friendList)
+            unfavoriteArray = friendList.filter(friendLists => friendLists.isFavorite === false);
+            unfavoriteArray = this.sortDataList(unfavoriteArray)
+            
+            favoriteArray = friendList.filter(friendLists => friendLists.isFavorite === true)
+            favoriteArray = this.sortDataList(favoriteArray)
+            
+            console.log('favoriteArray===', favoriteArray,'unfavoriteArray===', unfavoriteArray)
+            friendList = [...favoriteArray, ...unfavoriteArray]
             updatedFilter = friendList.slice(pagination.start, pagination.end)
         }
         console.log('updatedFilter--->>>>>>', updatedFilter);
