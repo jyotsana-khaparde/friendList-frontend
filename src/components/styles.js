@@ -1,7 +1,8 @@
 const styles = () => ({
     search: {
         border: '1px solid black',
-        width: 300,
+        width: '20%',
+        marginRight: 20,
         background: 'white',
         borderRadius: 20,
         borderColor: '#bcc1bc',
@@ -27,15 +28,17 @@ const styles = () => ({
         color: 'white'
     },
     input: {
-        width: 300,
-        border: '1px solid #bcc1bc',
+        width: '20%',
+        marginLeft: 10,
         borderRadius: 2,
-        boxShadow: '2px 1px 32px -15px'
+        border: 'none',
+        borderBottom: '1px solid #bcc1bc'
     },
     headingContainer: { 
         display: 'flex', 
-        justifyContent: 'space-evenly', 
-        margin: '1% 0 1% 0%' 
+        justifyContent: 'space-between', 
+        margin: '1% 0 1% 0%',
+        width: '100%'
     },
     deleteButton: {
         padding: 5, 
@@ -61,7 +64,6 @@ const styles = () => ({
     },
     listContainer: {
         display: 'flex',
-        margin: '0px 230px 0px 230px',
         padding: 10,
         justifyContent: 'space-between',
         border: '1px solid #d2cdcd',
