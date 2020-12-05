@@ -3,7 +3,7 @@
     {
       "id": "594e1630-1d33-4be3-ab79-8026ab25d999",
       "name": "mamta khapardde",
-      "isFavorite": false
+      "isFavorite": true
     },
     {
       "id": "1c87464f-9b51-493f-84e4-ad56d72b805e",
@@ -13,7 +13,7 @@
     {
       "id": "b4deac1c-17dd-4893-8323-504c5466d772",
       "name": "Sanjana",
-      "isFavorite": false
+      "isFavorite": true
     }
   ]
 }

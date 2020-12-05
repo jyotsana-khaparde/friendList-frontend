@@ -49,6 +49,13 @@ const styles = () => ({
         color: 'black', 
         margin: 3 
     },
+    favorite: {
+        padding: 5, 
+        borderRadius: 5, 
+        background: '#f7e95d', 
+        color: 'black', 
+        margin: 3
+    },
     listContainer: {
         display: 'flex',
         margin: '0px 230px 0px 230px',

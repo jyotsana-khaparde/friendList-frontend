@@ -1,3 +1,4 @@
 export const GET_FRIEND_LIST = 'GET_FRIEND_LIST'
 export const ADD_FRIEND = 'ADD_FRIEND'
+export const EDI_FAVORITE = 'EDI_FAVORITE'
 export const DELETE_FRIEND = 'DELETE_FRIEND'

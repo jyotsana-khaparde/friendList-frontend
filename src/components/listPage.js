@@ -4,18 +4,24 @@ import { withStyles } from '@material-ui/core';
 import styles from './styles';
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import { getFriendList } from '../redux/actionCreator';
+import { getFriendList, updateFavorite } from '../redux/actionCreator';
 
 class ListPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-           friendName: ''
         }
     }
 
     componentDidMount() {
         this.props.getFriendList()
+    }
+
+    handleClick = (e, friendLists) => {
+        console.log('clicked...', friendLists);
+        friendLists.isFavorite = !friendLists.isFavorite
+        console.log('updated friendLists---', friendLists);
+        this.props.updateFavorite(friendLists)
     }
 
     render() {
@@ -31,12 +37,13 @@ class ListPage extends Component {
                             <span className={classes.info}>is your friend</span>
                         </div>
                         <div>
+                            <StarBorderIcon
+                                className={ friendLists.isFavorite ? classes.favorite : classes.starButton}
+                                onClick={(e) => this.handleClick(e, friendLists)}
+                            />
                             <DeleteOutlineOutlinedIcon
                                 // onClick={(e) => this.handleTrClick(e, dataLists, 'openDeleteModal')}
                                 className={classes.deleteButton}
-                            />
-                            <StarBorderIcon
-                                className={classes.starButton}
                             />
                         </div>
                     </div>
@@ -57,6 +64,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getFriendList: () => dispatch(getFriendList()),
+        updateFavorite: (payload) => dispatch(updateFavorite(payload))
     }
 };
 

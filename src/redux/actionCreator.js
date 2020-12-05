@@ -1,4 +1,4 @@
-import { GET_FRIEND_LIST, ADD_FRIEND, EDIT_TASK, DELETE_FRIEND } from './actionTypes'
+import { GET_FRIEND_LIST, ADD_FRIEND, EDI_FAVORITE, DELETE_FRIEND } from './actionTypes'
 import axios from 'axios';
 
 export const getFriendList = () => {
@@ -34,5 +34,19 @@ export const deleteFriend = (id) => {
       }).catch(error => {
           console.log(error);
       });
+    }
+}
+
+export const updateFavorite = (payload) => {
+    console.log('updateFavorite payload-->', payload);
+    return (dispatch) => {
+        axios.put(`http://localhost:3000/friendList/${payload.id}`, payload)
+          .then(res => {
+            console.log('updateFavorite res.data--->', res.data);
+            dispatch({ type: EDI_FAVORITE, data: res.data })
+          })
+          .catch(error => {
+            console.log(error)
+          })
     }
 }
