@@ -4,15 +4,11 @@ import { withStyles } from '@material-ui/core';
 import styles from './styles';
 
 const Pagination = (props) => {
-    console.log('props showPerPage----', props)
     const { classes } = props;
     const [counter, setCounter] = useState(1);
 
     useEffect(() => {
-        console.log('counter----', counter);
         const value = props.showPerPage * counter;
-        console.log('start value:-', value - props.showPerPage);
-        console.log('end value:-', value);
         // start value and end value 
         props.onPaginationChange( value - props.showPerPage, value)
     }, [counter]);

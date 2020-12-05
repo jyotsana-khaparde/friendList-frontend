@@ -28,9 +28,7 @@ class ListPage extends Component {
 
     handleClick = (e, friendLists, key) => {
         if (key === 'star') {
-            console.log('clicked...', friendLists);
             friendLists.isFavorite = !friendLists.isFavorite
-            console.log('updated friendLists---', friendLists);
             this.props.updateFavorite(friendLists)
         }
         if (key === 'delete') {
@@ -49,9 +47,7 @@ class ListPage extends Component {
     }
 
     onPaginationChange = (start, end) => {
-        console.log('onPaginationChange----', start, end);
         let updatePagination = {...this.state.pagination, ['start']: start, ['end']: end}
-        console.log('updatePagination---', updatePagination);
         this.setState({
             pagination: updatePagination
         })
@@ -69,7 +65,6 @@ class ListPage extends Component {
             if (nameA > nameB) {
             return 1;
             }
-            // names must be equal
             return 0;
         });
         return dataList;
@@ -78,32 +73,30 @@ class ListPage extends Component {
     render() {
         let { classes, friendList, searchText } = this.props;
         const { pagination, showPerPage, openDeleteModal, friendListData } = this.state;
-        let updatedFilter = []
-        let unfavoriteArray = []
-        let favoriteArray = []
+        let updatedFilter = [];
+        let unfavoriteArray = [];
+        let favoriteArray = [];
+        let showMesssage = false;
         if (searchText) {
             updatedFilter = friendList.filter((list) => {
                 return list.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1;
             })
+            updatedFilter.length > 0 ? showMesssage = false : showMesssage = true;
         }
         if (!searchText) {
-            console.log('pagination bas dikhana hai====', friendList)
             unfavoriteArray = friendList.filter(friendLists => friendLists.isFavorite === false);
-            unfavoriteArray = this.sortDataList(unfavoriteArray)
+            unfavoriteArray = this.sortDataList(unfavoriteArray);
             
-            favoriteArray = friendList.filter(friendLists => friendLists.isFavorite === true)
-            favoriteArray = this.sortDataList(favoriteArray)
+            favoriteArray = friendList.filter(friendLists => friendLists.isFavorite === true);
+            favoriteArray = this.sortDataList(favoriteArray);
             
-            console.log('favoriteArray===', favoriteArray,'unfavoriteArray===', unfavoriteArray)
-            friendList = [...favoriteArray, ...unfavoriteArray]
-            updatedFilter = friendList.slice(pagination.start, pagination.end)
+            friendList = [...favoriteArray, ...unfavoriteArray];
+            updatedFilter = friendList.length > 4 ? friendList.slice(pagination.start, pagination.end) : friendList
         }
-        console.log('updatedFilter--->>>>>>', updatedFilter);
 
         return (
             <>
                 {
-                    updatedFilter && updatedFilter.length > 0 ?
                     updatedFilter.map((friendLists) => (
                     <div className={classes.listContainer} key={friendLists.id}>
                         <div className={classes.nameContainer}>
@@ -121,10 +114,11 @@ class ListPage extends Component {
                             />
                         </div>
                     </div>
-                    )) : <div>No Friends found !</div>
+                )) 
                 }
+                { showMesssage && <div>No Friends found !</div>}
                 {
-                    friendList && friendList.length > 0 && !searchText &&
+                    friendList.length > 4 && !searchText &&
                     <Pagination
                         showPerPage={showPerPage}
                         onPaginationChange={this.onPaginationChange}
@@ -145,7 +139,6 @@ class ListPage extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log('mapStateToProps ListPage---->', state);
     return {
         friendList: state.friendList
     }

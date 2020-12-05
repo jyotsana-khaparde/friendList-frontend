@@ -8,22 +8,12 @@ const todoReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_FRIEND_LIST:
             let friendListData = [...action.data]
-            // friendListData.sort((a, b) => {
-            //     let da = new Date(a.CreatedAt);
-            //     let db = new Date(b.CreatedAt);
-            //     return db - da;
-            // });
         return {
             ...state,
             friendList: friendListData
         }
         case ADD_FRIEND:
             let updatedDate = [...state.friendList, action.data]
-            // updatedDate.sort((a, b) => {
-            //     let da = new Date(a.CreatedAt);
-            //     let db = new Date(b.CreatedAt);
-            //     return db - da;
-            // });
         return {
             ...state,
             friendList: updatedDate

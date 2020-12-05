@@ -14,7 +14,6 @@ export const getFriendList = () => {
 }
 
 export const addFriend = (payload) => {
-    console.log('addFriend payload---', payload);
     return (dispatch) => {
         axios.post('http://localhost:3000/friendList', payload)
           .then(res => {
@@ -38,11 +37,9 @@ export const deleteFriend = (id) => {
 }
 
 export const updateFavorite = (payload) => {
-    console.log('updateFavorite payload-->', payload);
     return (dispatch) => {
         axios.put(`http://localhost:3000/friendList/${payload.id}`, payload)
           .then(res => {
-            console.log('updateFavorite res.data--->', res.data);
             dispatch({ type: EDI_FAVORITE, data: res.data })
           })
           .catch(error => {

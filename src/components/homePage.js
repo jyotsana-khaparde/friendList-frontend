@@ -23,7 +23,6 @@ class HomePage extends Component {
   
     keyPress = (e) => {
         if (e.keyCode === 13) {
-            console.log('value---', e.target.value);
             let payload = {
                 id: uuid.v4(),
                 name: e.target.value,
@@ -64,7 +63,6 @@ class HomePage extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log('mapStateToProps homepage---->', state);
     return {
         friendList: state.friendList
     }

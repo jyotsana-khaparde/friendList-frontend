@@ -77,7 +77,7 @@ const styles = () => ({
     name: {
         fontSize: 18,
         fontWeight: 500,
-        wordBreak: 'break-all'
+        wordBreak: 'break-word'
     },
     info: {
         fontSize: 14,
@@ -128,7 +128,7 @@ const styles = () => ({
         display: 'flex',
     },
     modalMessage: {
-        wordBreak: 'break-all'
+        wordBreak: 'break-word'
     }
 })
 
