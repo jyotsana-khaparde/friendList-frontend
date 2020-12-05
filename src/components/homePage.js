@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import SearchBar from './searchBar';
 import { withStyles } from '@material-ui/core';
 import ListPage from './listPage';
 import Header from './header';
 import styles from './styles';
+import { addFriend } from '../redux/actionCreator';
+const uuid = require('uuid');
 
 class HomePage extends Component {
     constructor(props) {
@@ -19,7 +22,14 @@ class HomePage extends Component {
   
     keyPress = (e) => {
         if (e.keyCode === 13) {
-           console.log('value---', e.target.value);
+            console.log('value---', e.target.value);
+            let payload = {
+                id: uuid.v4(),
+                name: e.target.value,
+                isFavorite: false
+            }
+            this.props.addFriend(payload)
+            this.setState({ friendName: '' });
         }
     }
 
@@ -50,4 +60,17 @@ class HomePage extends Component {
     }
 }
 
-export default withStyles(styles)(HomePage);
+const mapStateToProps = state => {
+    console.log('mapStateToProps homepage---->', state);
+    return {
+        friendList: state.friendList
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addFriend: (payload) => dispatch(addFriend(payload)),
+    }
+};
+
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(HomePage));
