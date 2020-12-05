@@ -28,7 +28,8 @@ const styles = () => ({
     input: {
         width: 300,
         border: '1px solid #bcc1bc',
-        borderRadius: 2
+        borderRadius: 2,
+        boxShadow: '2px 1px 32px -15px'
     },
     headingContainer: { 
         display: 'flex', 

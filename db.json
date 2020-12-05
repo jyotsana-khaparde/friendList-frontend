@@ -14,6 +14,11 @@
       "id": "b4deac1c-17dd-4893-8323-504c5466d772",
       "name": "Sanjana",
       "isFavorite": true
+    },
+    {
+      "id": "d99fe683-1374-4e2f-b14e-20c25d343909",
+      "name": "Kiran Kaur",
+      "isFavorite": false
     }
   ]
 }
