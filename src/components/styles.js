@@ -124,6 +124,9 @@ const styles = () => ({
     },
     iconContainer: {
         display: 'flex',
+    },
+    modalMessage: {
+        wordBreak: 'break-all'
     }
 })
 

@@ -9,7 +9,7 @@ function DeleteModal(props) {
 
     const body = (
         <div className={classes.modalContainer}>
-            <h3>{`Are you sure, you want to delete ${friendName} from friend list ?`}</h3>
+            <h3 className={classes.modalMessage}>{`Are you sure, you want to delete ${friendName} from friend list ?`}</h3>
             <Button className={classes.noButton} onClick={props.handleClose}>
                 No
             </Button>
