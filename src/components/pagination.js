@@ -35,6 +35,7 @@ const Pagination = (props) => {
                         <li
                             className={index + 1 === counter ? classes.activePageNumber : classes.pageNumber}
                             onClick={() => setCounter(index + 1)}
+                            key={index}
                         >
                             <span>
                                 {index + 1}
