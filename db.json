@@ -13,21 +13,41 @@
     {
       "id": "8cff64b2-8867-450c-96e1-d6d5505b873d",
       "name": "Simba singh",
-      "isFavorite": false
+      "isFavorite": true
     },
     {
       "id": "34aa51f2-d281-487a-8bcc-0bc3c72c571e",
       "name": "Quest",
+      "isFavorite": true
+    },
+    {
+      "id": "c477cf2f-9f8e-45df-9340-7efc268f40c6",
+      "name": "asdd",
       "isFavorite": false
     },
     {
-      "id": "d2792cac-466a-43a7-aff9-dc017ae9661f",
-      "name": "Simba",
+      "id": "6a41bb6c-1c90-4404-98c6-34754de0fd2e",
+      "name": "asdad",
       "isFavorite": false
     },
     {
-      "id": "489dc778-10d1-43b8-be55-34befc3eeecf",
-      "name": "Sneha Khan",
+      "id": "77b99b3e-df5c-482b-b7af-86a11d5c9329",
+      "name": "qwe",
+      "isFavorite": false
+    },
+    {
+      "id": "f707144f-28d1-4a87-8259-3df516022ba7",
+      "name": "qweqw",
+      "isFavorite": false
+    },
+    {
+      "id": "89c3dc27-3f1b-4b4c-88dd-bc9543f0c52d",
+      "name": "qwe",
+      "isFavorite": false
+    },
+    {
+      "id": "c0abbd75-4c74-4121-ad79-69a334630793",
+      "name": "qwe",
       "isFavorite": false
     }
   ]

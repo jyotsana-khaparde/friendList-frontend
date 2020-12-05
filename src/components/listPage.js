@@ -60,18 +60,23 @@ class ListPage extends Component {
     render() {
         let { classes, friendList, searchText } = this.props;
         const { pagination, showPerPage, openDeleteModal } = this.state;
-        console.log('friendList---', friendList, searchText);
+        let updatedFilter = []
         if (searchText) {
-            let filteredList = friendList.filter((list) => {
+            updatedFilter = friendList.filter((list) => {
                 return list.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1;
             })
-            friendList = filteredList
         }
+        if (!searchText) {
+            console.log('pagination bas dikhana hai')
+            updatedFilter = friendList.slice(pagination.start, pagination.end)
+        }
+        console.log('updatedFilter--->>>>>>', updatedFilter);
+
         return (
             <>
                 {
-                    friendList && friendList.length > 0 ?
-                    friendList.slice(pagination.start, pagination.end).map((friendLists) => (
+                    updatedFilter && updatedFilter.length > 0 ?
+                    updatedFilter.map((friendLists) => (
                     <div className={classes.listContainer} key={friendLists.id}>
                         <div className={classes.nameContainer}>
                             <span className={classes.name}>{friendLists.name}</span>
@@ -91,14 +96,14 @@ class ListPage extends Component {
                     )) : <div>No Friends found !</div>
                 }
                 {
-                    friendList && friendList.length > 0 &&
+                    friendList && friendList.length > 0 && !searchText &&
                     <Pagination
                         showPerPage={showPerPage}
                         onPaginationChange={this.onPaginationChange}
                         totalListLength={friendList.length}
                     />
                 }
-                { 
+                {
                     this.state.openDeleteModal && <DeleteModal
                         open={openDeleteModal}
                         handleClose={() => this.setState({ openDeleteModal: false })}
