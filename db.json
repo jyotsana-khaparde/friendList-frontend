@@ -6,63 +6,23 @@
       "isFavorite": true
     },
     {
-      "id": "1c87464f-9b51-493f-84e4-ad56d72b805e",
-      "name": "Kamal Khaparde",
+      "id": "f18b5656-97f6-4f71-9775-590ebdea5066",
+      "name": "Simarn Kaur",
       "isFavorite": false
     },
     {
-      "id": "b4deac1c-17dd-4893-8323-504c5466d772",
-      "name": "Sanjana",
-      "isFavorite": true
-    },
-    {
-      "id": "d99fe683-1374-4e2f-b14e-20c25d343909",
-      "name": "Kiran Kaur",
+      "id": "8cff64b2-8867-450c-96e1-d6d5505b873d",
+      "name": "Simba singh",
       "isFavorite": false
     },
     {
-      "id": "94769e3e-fe87-40dc-b798-c2b85a30b8a0",
-      "name": "Sona Kahn",
+      "id": "34aa51f2-d281-487a-8bcc-0bc3c72c571e",
+      "name": "Quest",
       "isFavorite": false
     },
     {
-      "id": "0ba360f9-982b-4b6f-b38e-7754ad8df85a",
-      "name": "sonal sao",
-      "isFavorite": false
-    },
-    {
-      "id": "8c804bdf-e343-4936-93d7-6f26a9e54da2",
-      "name": "tanuj aramteke",
-      "isFavorite": false
-    },
-    {
-      "id": "b46842c8-947c-44e6-850c-e0db45e44cbd",
-      "name": "ayushi sing",
-      "isFavorite": false
-    },
-    {
-      "id": "8425c60b-5be0-4d17-99fc-6cc965da1e80",
-      "name": "payal ramteke",
-      "isFavorite": false
-    },
-    {
-      "id": "69c09e2a-1c50-49c3-9350-f2fc5f19f3b0",
-      "name": "saurbh singh",
-      "isFavorite": false
-    },
-    {
-      "id": "8c9e1ba1-a175-4ac3-a2b8-d294f11cf328",
-      "name": "shweta vocjare",
-      "isFavorite": false
-    },
-    {
-      "id": "8cc27664-5f15-4a5d-a0ef-98fb14f040e3",
-      "name": "manisha sinha",
-      "isFavorite": false
-    },
-    {
-      "id": "ae776e1e-ca23-4764-9e12-7ef605e2783f",
-      "name": "yasmin bano",
+      "id": "d2792cac-466a-43a7-aff9-dc017ae9661f",
+      "name": "Simba",
       "isFavorite": false
     }
   ]

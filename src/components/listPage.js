@@ -4,14 +4,17 @@ import { withStyles } from '@material-ui/core';
 import styles from './styles';
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import { getFriendList, updateFavorite } from '../redux/actionCreator';
+import { getFriendList, updateFavorite, deleteFriend } from '../redux/actionCreator';
 import Pagination from './pagination';
+import DeleteModal from './deleteModal';
 
 class ListPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            openDeleteModal: false,
             showPerPage: 4,
+            friendListData: {},
             pagination: {
                 start: 0,
                 end: 4
@@ -23,11 +26,26 @@ class ListPage extends Component {
         this.props.getFriendList()
     }
 
-    handleClick = (e, friendLists) => {
-        console.log('clicked...', friendLists);
-        friendLists.isFavorite = !friendLists.isFavorite
-        console.log('updated friendLists---', friendLists);
-        this.props.updateFavorite(friendLists)
+    handleClick = (e, friendLists, key) => {
+        if (key === 'star') {
+            console.log('clicked...', friendLists);
+            friendLists.isFavorite = !friendLists.isFavorite
+            console.log('updated friendLists---', friendLists);
+            this.props.updateFavorite(friendLists)
+        }
+        if (key === 'delete') {
+            this.setState({ 
+                friendListData: friendLists, 
+                openDeleteModal: true 
+            })
+        }
+    }
+
+    handleDeleteSubmit = () => {
+        this.props.deleteFriend(this.state.friendListData.id)
+        this.setState({ 
+            openDeleteModal: false 
+        })
     }
 
     onPaginationChange = (start, end) => {
@@ -41,7 +59,7 @@ class ListPage extends Component {
 
     render() {
         let { classes, friendList, searchText } = this.props;
-        const { pagination, showPerPage } = this.state;
+        const { pagination, showPerPage, openDeleteModal } = this.state;
         console.log('friendList---', friendList, searchText);
         if (searchText) {
             let filteredList = friendList.filter((list) => {
@@ -62,10 +80,10 @@ class ListPage extends Component {
                         <div>
                             <StarBorderIcon
                                 className={ friendLists.isFavorite ? classes.favorite : classes.starButton}
-                                onClick={(e) => this.handleClick(e, friendLists)}
+                                onClick={(e) => this.handleClick(e, friendLists, 'star')}
                             />
                             <DeleteOutlineOutlinedIcon
-                                // onClick={(e) => this.handleTrClick(e, dataLists, 'openDeleteModal')}
+                                onClick={(e) => this.handleClick(e, friendLists, 'delete')}
                                 className={classes.deleteButton}
                             />
                         </div>
@@ -78,6 +96,13 @@ class ListPage extends Component {
                         showPerPage={showPerPage}
                         onPaginationChange={this.onPaginationChange}
                         totalListLength={friendList.length}
+                    />
+                }
+                { 
+                    this.state.openDeleteModal && <DeleteModal
+                        open={openDeleteModal}
+                        handleClose={() => this.setState({ openDeleteModal: false })}
+                        handleModalSubmit={this.handleDeleteSubmit}
                     />
                 }
             </>
@@ -95,7 +120,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getFriendList: () => dispatch(getFriendList()),
-        updateFavorite: (payload) => dispatch(updateFavorite(payload))
+        updateFavorite: (payload) => dispatch(updateFavorite(payload)),
+        deleteFriend: (payload) => dispatch(deleteFriend(payload))
     }
 };
 
