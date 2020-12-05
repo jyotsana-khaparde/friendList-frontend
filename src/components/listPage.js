@@ -5,11 +5,17 @@ import styles from './styles';
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { getFriendList, updateFavorite } from '../redux/actionCreator';
+import Pagination from './pagination';
 
 class ListPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            showPerPage: 4,
+            pagination: {
+                start: 0,
+                end: 4
+            },
         }
     }
 
@@ -24,8 +30,18 @@ class ListPage extends Component {
         this.props.updateFavorite(friendLists)
     }
 
+    onPaginationChange = (start, end) => {
+        console.log('onPaginationChange----', start, end);
+        let updatePagination = {...this.state.pagination, ['start']: start, ['end']: end}
+        console.log('updatePagination---', updatePagination);
+        this.setState({
+            pagination: updatePagination
+        })
+    }
+
     render() {
         let { classes, friendList, searchText } = this.props;
+        const { pagination, showPerPage } = this.state;
         console.log('friendList---', friendList, searchText);
         if (searchText) {
             let filteredList = friendList.filter((list) => {
@@ -37,7 +53,7 @@ class ListPage extends Component {
             <>
                 {
                     friendList && friendList.length > 0 ?
-                    friendList.map((friendLists) => (
+                    friendList.slice(pagination.start, pagination.end).map((friendLists) => (
                     <div className={classes.listContainer} key={friendLists.id}>
                         <div className={classes.nameContainer}>
                             <span className={classes.name}>{friendLists.name}</span>
@@ -56,6 +72,11 @@ class ListPage extends Component {
                     </div>
                     )) : <div>No Friends found !</div>
                 }
+                <Pagination
+                    showPerPage={showPerPage}
+                    onPaginationChange={this.onPaginationChange}
+                    totalListLength={friendList.length}
+                />
             </>
         )
     }
