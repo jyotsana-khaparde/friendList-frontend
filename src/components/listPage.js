@@ -77,7 +77,7 @@ class ListPage extends Component {
 
     render() {
         let { classes, friendList, searchText } = this.props;
-        const { pagination, showPerPage, openDeleteModal } = this.state;
+        const { pagination, showPerPage, openDeleteModal, friendListData } = this.state;
         let updatedFilter = []
         let unfavoriteArray = []
         let favoriteArray = []
@@ -110,7 +110,7 @@ class ListPage extends Component {
                             <span className={classes.name}>{friendLists.name}</span>
                             <span className={classes.info}>is your friend</span>
                         </div>
-                        <div>
+                        <div className={classes.iconContainer}>
                             <StarBorderIcon
                                 className={ friendLists.isFavorite ? classes.favorite : classes.starButton}
                                 onClick={(e) => this.handleClick(e, friendLists, 'star')}
@@ -136,6 +136,7 @@ class ListPage extends Component {
                         open={openDeleteModal}
                         handleClose={() => this.setState({ openDeleteModal: false })}
                         handleModalSubmit={this.handleDeleteSubmit}
+                        friendName={friendListData.name}
                     />
                 }
             </>

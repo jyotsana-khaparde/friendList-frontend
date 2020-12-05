@@ -20,10 +20,11 @@ const styles = () => ({
         border: '1px solid #f3f0f0' 
     },
     header: { 
-        background: '#ece9e9', 
+        background: '#3f51b5', 
         padding: 10, 
         textAlign: 'left', 
-        fontWeight: 'bold' 
+        fontWeight: 'bold',
+        color: 'white'
     },
     input: {
         width: 300,
@@ -39,9 +40,10 @@ const styles = () => ({
     deleteButton: {
         padding: 5, 
         borderRadius: 5, 
-        background: 'whitesmoke', 
+        background: '#3f51b5', 
         color: 'black', 
-        margin: 3 
+        margin: 3,
+        color: 'white'
     },
     starButton: {
         padding: 5, 
@@ -72,7 +74,8 @@ const styles = () => ({
     },
     name: {
         fontSize: 18,
-        fontWeight: 500
+        fontWeight: 500,
+        wordBreak: 'break-all'
     },
     info: {
         fontSize: 14,
@@ -118,6 +121,9 @@ const styles = () => ({
         margin: 4, 
         color: 'white', 
         background: '#3f51b5'
+    },
+    iconContainer: {
+        display: 'flex',
     }
 })
 
