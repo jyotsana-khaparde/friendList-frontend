@@ -12,7 +12,8 @@ class HomePage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-           friendName: ''
+           friendName: '',
+           searchedText: '',
         }
     }
 
@@ -33,8 +34,8 @@ class HomePage extends Component {
         }
     }
 
-    handleSearchBarValue = () => {
-
+    handleSearchBarValue = (value) => {
+        this.setState({ searchedText: value })
     }
 
     render() {
@@ -54,7 +55,9 @@ class HomePage extends Component {
                             handleSearchBarValue={this.handleSearchBarValue}
                         />
                     </div>
-                    <ListPage/>
+                    <ListPage
+                        searchText={this.state.searchedText}
+                    />
             </div>
         )
     }

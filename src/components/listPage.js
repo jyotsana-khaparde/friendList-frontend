@@ -25,11 +25,18 @@ class ListPage extends Component {
     }
 
     render() {
-        const { classes, friendList } = this.props;
-        console.log('friendList---', friendList);
+        let { classes, friendList, searchText } = this.props;
+        console.log('friendList---', friendList, searchText);
+        if (searchText) {
+            let filteredList = friendList.filter((list) => {
+                return list.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1;
+            })
+            friendList = filteredList
+        }
         return (
             <>
                 {
+                    friendList && friendList.length > 0 ?
                     friendList.map((friendLists) => (
                     <div className={classes.listContainer} key={friendLists.id}>
                         <div className={classes.nameContainer}>
@@ -47,7 +54,7 @@ class ListPage extends Component {
                             />
                         </div>
                     </div>
-                    ))
+                    )) : <div>No Friends found !</div>
                 }
             </>
         )
