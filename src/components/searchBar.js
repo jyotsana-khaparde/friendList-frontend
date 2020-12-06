@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import { InputBase } from '@material-ui/core';
 import { withStyles } from '@material-ui/core';
 import styles from './styles';

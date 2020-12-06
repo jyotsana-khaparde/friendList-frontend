@@ -106,9 +106,9 @@ const styles = () => ({
     },
     modalContainer: {
         position: 'absolute',
-        width: 400,
+        width: '30%',
         backgroundColor: 'white',
-        margin: '220px 0px 0px 500px',
+        margin: '10% 0% 0% 35%',
         padding: 10,
         textAlign: 'center'
     },
